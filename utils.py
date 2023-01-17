@@ -2,6 +2,15 @@ import random as rd
 notre_score  = 50
 score_ennemi = 50
 potion = 3
+def attaque_potion_valide(string):
+    if string == "attaque":
+        return True
+    if string == "potion": 
+        return True
+    
+    
+    
+    
 def on_attaque_potion(string,notre_score,score_ennemi):
     if string=="attaque":
         score_ennemi -= rd.randint(5,10)
