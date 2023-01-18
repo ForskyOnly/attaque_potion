@@ -36,9 +36,11 @@ while not termin:
     if choix=="attaque":
         score_ennemi=on_attaque_potion(choix,notre_score,score_ennemi)
     elif choix=="potion":
-        notre_score=on_attaque_potion(choix,notre_score,score_ennemi)
+        
         nb_potion +=1
+        
         if nb_potion <=3:
+            notre_score=on_attaque_potion(choix,notre_score,score_ennemi)
             print(nb_potion)
             True
         else:
