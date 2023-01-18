@@ -33,17 +33,20 @@ termin=False
 while not termin:
     print(notre_score,score_ennemi)
     choix = input("entrer attaque ou potion : ")
+    
     if choix=="attaque":
         score_ennemi=on_attaque_potion(choix,notre_score,score_ennemi)
     elif choix=="potion":
-        notre_score=on_attaque_potion(choix,notre_score,score_ennemi)
         nb_potion +=1
         if nb_potion <=3:
-            print(nb_potion)
-            True
+            notre_score=on_attaque_potion(choix,notre_score,score_ennemi)
+            print("nombre de potion",nb_potion)
         else:
             print("on a utilisé toutes les potions")
-            False
+            choix = input("entrer juste attaque: ")
+            while choix != "attaque":
+                choix = input("entrer SVP juste attaque: ")   
+            score_ennemi=on_attaque_potion(choix,notre_score,score_ennemi)       
     else:
         print("SVP entrer un choix valide")
         
