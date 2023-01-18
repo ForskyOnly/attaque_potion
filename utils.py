@@ -1,7 +1,7 @@
 import random as rd
 notre_score  = 50
 score_ennemi = 50
-potion = 3
+nb_potion = 0
 
 # def attaque_potion_valide(string):
 #     if string == "attaque":
@@ -33,12 +33,22 @@ termin=False
 while not termin:
     print(notre_score,score_ennemi)
     choix = input("entrer attaque ou potion : ")
-    while not on_attaque_potion(choix,notre_score,score_ennemi):
-        choix = input("SVP entre un choix valide : ")
     if choix=="attaque":
         score_ennemi=on_attaque_potion(choix,notre_score,score_ennemi)
-    if choix=="potion":
+    elif choix=="potion":
         notre_score=on_attaque_potion(choix,notre_score,score_ennemi)
+        nb_potion +=1
+        if nb_potion <=3:
+            print(nb_potion)
+            True
+        else:
+            print("on a utilisé toutes les potions")
+            False
+    else:
+        print("SVP entrer un choix valide")
+        
+    
+    
     print(notre_score,score_ennemi)
     if score_ennemi <=0:
         termin=True
