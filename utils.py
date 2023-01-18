@@ -14,33 +14,41 @@ potion = 3
     
     
     
-def on_attaque_potion(string,notre_score,score_ennemi):
-    if string=="attaque":
-        score_ennemi -= rd.randint(5,10)
-        return True
-    elif string=="potion":
-        notre_score += rd.randint(15,50)
-        return True
-    else:
-        return False
+def on_attaque_potion(choix,x,y):
+    if choix=="attaque":
+        y -= rd.randint(5,10)
+        print("le score de l'ennemi est", y)
+        return y
+    if choix=="potion":
+        x += rd.randint(15,50)
+        print("notre score apres une potion est", x)
+        return x
+    return False
 
-#print(on_attaque_potion("attaque",notre_score,score_ennemi))
-#print(on_attaque_potion("potion",notre_score,score_ennemi))
+# print(on_attaque_potion("attaque",notre_score,score_ennemi))
+# print(on_attaque_potion("potion",notre_score,score_ennemi))
+# print(score_ennemi,notre_score)
 
 termin=False
 while not termin:
+    print(notre_score,score_ennemi)
     choix = input("entrer attaque ou potion : ")
     while not on_attaque_potion(choix,notre_score,score_ennemi):
         choix = input("SVP entre un choix valide : ")
-    
+    if choix=="attaque":
+        score_ennemi=on_attaque_potion(choix,notre_score,score_ennemi)
+    if choix=="potion":
+        notre_score=on_attaque_potion(choix,notre_score,score_ennemi)
+    print(notre_score,score_ennemi)
     if score_ennemi <=0:
         termin=True
         print("l'ennemi est mort")
     else:
         notre_score -= rd.randint(5,15)
+        print("notre score apres l'attaque de l'ennemi est",notre_score)
     if notre_score <=0:
         termin=True
-        print("On'est mort")
+        print("On est mort")
         
 
 
@@ -50,8 +58,8 @@ while not termin:
 
 
 
-def calculer_score_ennemi():
-    pass
+# def calculer_score_ennemi():
+#     pass
 
-def ennemi_attaque():
-    pass
+# def ennemi_attaque():
+#     pass
