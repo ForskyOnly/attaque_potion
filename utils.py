@@ -33,10 +33,10 @@ def notre_choix(choix,nb,x,y):
         y = on_attaque_potion(choix,x,y)
         return y
     elif choix=="potion":
-        # nb += 1
-        if nb <= 3:
-            x= utilisation_potion(choix,nb,x,y)
-            return x
+        nb_potion +=1
+        if nb_potion <=3:
+            notre_score=on_attaque_potion(choix,notre_score,score_ennemi)
+            print("nombre de potion",nb_potion)
         else:
             y= utilisation_potion(choix,nb,x,y)
             return y 
