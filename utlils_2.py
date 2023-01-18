@@ -19,6 +19,16 @@ def compteur_potion(nb):
     nb+= 1
     return nb
 
+def verifie_potion(nb,x):
+    if nb<= 3:
+        x = on_prend_potion(x)
+        x = il_attaque(x)
+        print(" le nb de potions utilisées est : ", nb)
+        return x
+    else:
+        print("on a utilisé toutes les potions svp attaquer")
+        return x
+
 ##############################################################
 
 termin=False
@@ -26,22 +36,14 @@ while not termin:
     print("notre score est : ",score_notre)
     print("le score de l'ennemi est: ",score_ennemi)
     choix = input("entrer attaque ou potion : ")
-    
     if choix == "attaque" :
         score_ennemi = on_attaque(score_ennemi)
         score_notre = il_attaque(score_notre)    
     elif choix == "potion" :
-        nb_potion = compteur_potion(nb_potion)    
-        if nb_potion <= 3:
-            score_notre = on_prend_potion(score_notre)
-            score_notre = il_attaque(score_notre)
-            print(" le nb de potions utilisées est : ", nb_potion)
-        else:
-             print("on a utilisé toutes les potions svp attaquer")
+        nb_potion = compteur_potion(nb_potion) 
+        score_notre = verifie_potion(nb_potion,score_notre)   
     else:
-        print("entrer un choix valide : ")
-    
-        
+        print("entrer un choix valide : ")   
     if score_ennemi <= 0:
         termin = True
         print("l'ennemi est mort")
@@ -51,5 +53,4 @@ while not termin:
      
         
         
-    
     
