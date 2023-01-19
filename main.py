@@ -1,6 +1,7 @@
 import random as rd
 import csv 
 from utils import on_attaque, il_attaque, compteur_potion, on_prend_potion, enregistrer_score
+
 score_notre  = 50
 score_ennemi = 50
 nb_potion = 0
