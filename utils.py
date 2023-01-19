@@ -2,80 +2,80 @@ import random as rd
 import csv
 
 
-def on_attaque(y):
+def on_attaque(score_ennemi):
     """ FR : cette fonction est faite pour calculer le score de l'ennemi apres notre attaque 
         EN : this function is made to calculate the score of the enemy after our attack 
         
 
     Args:
-        y (_type_):     FR : y va représente le score du joueur ennemi
-                        EN : y  represents the score of the enemy player
+        score_ennemi (_type_):     FR : score_ennemi va représente le score du joueur ennemi
+                        EN : score_ennemi  represents the score of the enemy player
 
     Returns:
         _type_:     FR :   la fonction  retire des point de vie à l'adversaire entre 5 et 10
                     EN :   the function removes life points from the opponent between 5 and 10
     """
-    y -= rd.randint(5,10)
-    return y
+    score_ennemi -= rd.randint(5,10)
+    return score_ennemi
 
-def il_attaque(x):
+def il_attaque(score_notre):
     """ 
         FR : cette fonction est faite pour calculer notre score après l'attaque de l'ennemi  
         EN : this function is made to calculate our score after enemy attack
 
     Args:
-        x (_type_): FR : x va représenter notre score 
-                    EN : x will represent our score
+        score_notre (_type_): FR : score_notre va représenter notre score 
+                    EN : score_notre will represent our score
 
     Returns:
         _type_: FR : la fonction NOUS retire des point de vie entre 5 et 15
                 EN : the function removes  life points between 5 and 15 of our score
     """
-    x -= rd.randint(5,15)
-    return x
+    score_notre -= rd.randint(5,15)
+    return score_notre
 
 
-def on_prend_potion(x):
+def on_prend_potion(score_notre):
     """ FR : cette fonction permet de recalculer notre score apres avoir utilisé une potion
         EN : this function allows us to recalculate our score after using a potion
 
     Args:
-        x (_type_): FR : x va représenter notre score 
-                    EN : x will represent our score
+        score_notre (_type_): FR : score_notre va représenter notre score 
+                    EN : score_notre will represent our score
     Returns:
         _type_: FR : la fonction nous ajoute des point de vie entre 15 et 50
                 EN : the function add life points between 15 and 50 to our score
     """
-    x += rd.randint(15,50)
-    print("la potion nous a donner : ", x)
-    return x
+    score_notre += rd.randint(15,50)
+    print("la potion nous a donner : ", score_notre)
+    return score_notre
 
-def compteur_potion(nb):
+def compteur_potion(nb_potion):
     """ FR : cette fonction nous permet de compter les potions utilisées
         EN : this function allows us to count the used  potions
 
     Args:
-        nb (_type_):    FR : nb represent le nombre des potions utilisées
-                        EN : nb represents the used potions number 
+        nb_potion (_type_):    FR : nb_potion represent le nombre des potions utilisées
+                        EN : nb_potion represents the used potions number 
 
 
     Returns:
-        _type_: FR : rajouts +1 a chaque fois que l'on utilise une potion
+        _type_: FR : rajoutde +1 a chaque fois que l'on utilise une potion
                 EN : add +1 everytime when we use a potion
     """
-    nb+= 1
-    return nb
+    nb_potion+= 1
+    return nb_potion
 
-def verifie_potion(nb,x):
+def verifie_potion(nb_potion,score_notre):
     """ FR : cette fonction limite l'utilisation de potions à 3 
         EN : this function limits  using potions to 3
         
     Args:
-        nb (_type_):    FR : nb represente le nombre de potions utilisées
-                        EN : nb represents the number of used potions 
+        nb_potion (_type_):    FR : nb_potion represente le nombre de potions utilisées
+                        EN : nb_potion represents the number of used potions 
         
-        x (_type_):     FR : x va représenter notre score 
-                        EN : x will represent our score
+        score_notre (_type_):     FR : score_notre va représenter notre score 
+                        EN : score_notre will represent our score
 
     Returns:
         _type_: FR :    if : elle retourne notre score après la prise d'une potion 
@@ -88,14 +88,14 @@ def verifie_potion(nb,x):
                         else: it returns a message asking us to attack
                              because we used all the potions
     """
-    if nb<= 3:
-        x = on_prend_potion(x)
-        x = il_attaque(x)
-        print(" le nb de potions utilisées est : ", nb)
-        return x
+    if nb_potion<= 3:
+        score_notre = on_prend_potion(score_notre)
+        score_notre = il_attaque(score_notre)
+        print(" le nb de potions utilisées est : ", nb_potion)
+        return score_notre
     else:
         print("on a utilisé toutes les potions svp attaquer")
-        return x
+        return score_notre
     
 
 def enregistrer_score(score, nom_utilisateur):
