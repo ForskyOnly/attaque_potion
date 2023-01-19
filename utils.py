@@ -1,105 +1,112 @@
-import random as rd
-notre_score  = 50
-score_ennemi = 50
-nb_potion = 0
- #################################################################################   
-def on_attaque_potion(choix,x,y):
-    if choix=="attaque":
-        y -= rd.randint(5,10)
-        print("le score de l'ennemi est", y)
-        return y
-    if choix=="potion":
-        x += rd.randint(15,50)
-        print("notre score apres une potion est", x)
+import random as rd 
+import csv
+
+def on_attaque(y):
+    """ FR : cette fonction est faite pour calculer le score de l'ennemi apres notre attaque 
+        EN : this function is made to calculate the score of the enemy after our attack 
+        
+
+    Args:
+        y (_type_):     FR : y va représente le score du joueur ennemi
+                        EN : y  represents the score of the enemy player
+
+    Returns:
+        _type_:     FR :   la fonction  retire des point de vie à l'adversaire entre 5 et 10
+                    EN :   the function removes life points from the opponent between 5 and 10
+    """
+    y -= rd.randint(5,10)
+    return y
+
+def il_attaque(x):
+    """ 
+        FR : cette fonction est faite pour calculer notre score après l'attaque de l'ennemi  
+        EN : this function is made to calculate our score after enemy attack
+
+    Args:
+        x (_type_): FR : x va représenter notre score 
+                    EN : x will represent our score
+
+    Returns:
+        _type_: FR : la fonction NOUS retire des point de vie entre 5 et 15
+                EN : the function removes  life points between 5 and 15 of our score
+    """
+    x -= rd.randint(5,15)
+    return x
+
+
+def on_prend_potion(x):
+    """ FR : cette fonction permet de recalculer notre score apres avoir utilisé une potion
+        EN : this function allows us to recalculate our score after using a potion
+
+    Args:
+        x (_type_): FR : x va représenter notre score 
+                    EN : x will represent our score
+    Returns:
+        _type_: FR : la fonction nous ajoute des point de vie entre 15 et 50
+                EN : the function add life points between 15 and 50 to our score
+    """
+    x += rd.randint(15,50)
+    print("la potion nous a donner : ", x)
+    return x
+
+def compteur_potion(nb):
+    """ FR : cette fonction nous permet de compter les potions utilisées
+        EN : this function allows us to count the used  potions
+
+    Args:
+        nb (_type_):    FR : nb represent le nombre des potions utilisées
+                        EN : nb represents the used potions number 
+
+
+    Returns:
+        _type_: FR : rajouts +1 a chaque fois que l'on utilise une potion
+                EN : add +1 everytime when we use a potion
+    """
+    nb+= 1
+    return nb
+
+def verifie_potion(nb,x):
+    """ FR : cette fonction limite l'utilisation de potions à 3 
+        EN : this function limits  using potions to 3
+        
+    Args:
+        nb (_type_):    FR : nb represente le nombre de potions utilisées
+                        EN : nb represents the number of used potions 
+        
+        x (_type_):     FR : x va représenter notre score 
+                        EN : x will represent our score
+
+    Returns:
+        _type_: FR :    if : elle retourne notre score après la prise d'une potion 
+                            puis l'attaque de l'ennemi
+                        else : elle retourne un message qui nous demande d'attaquer 
+                            car nous avons utilisées toutes les potions
+                
+                EN :    if: it returns our score after taking a potion
+                             and the enemy attack
+                        else: it returns a message asking us to attack
+                             because we used all the potions
+    """
+    if nb<= 3:
+        x = on_prend_potion(x)
+        x = il_attaque(x)
+        print(" le nb de potions utilisées est : ", nb)
         return x
-    return False
-#####################################################################################
-def utilisation_potion(potion,nb,x,y):
-    if nb <=3:
-        x = on_attaque_potion(potion,x,y)
-        print("nombre de potion : ",nb)
+    else:
+        print("on a utilisé toutes les potions svp attaquer")
         return x
-    else:
-        print("on a utilisé toutes les potions")
-        choix = input("entrer juste attaque: ")
-        
-        while choix != "attaque":
-            choix = input("entrer SVP juste attaque: ")   
-        y=on_attaque_potion(choix,x,y) 
-        return y
-##################################################################################
-def notre_choix(choix,nb,x,y):
-    if choix=="attaque":
-        y = on_attaque_potion(choix,x,y)
-        return y
-    elif choix=="potion":
-        nb_potion +=1
-        if nb_potion <=3:
-            notre_score=on_attaque_potion(choix,notre_score,score_ennemi)
-            print("nombre de potion",nb_potion)
-        else:
-            y= utilisation_potion(choix,nb,x,y)
-            return y 
-    else:
-        print("SVP entrer un choix valide")
-##################################################################################
-def compteur_potion(choix,nb):
-    if choix == "potion":
-        nb+= 1
-        #print("nombre de potion : ",nb)
-        return nb
-########################################################################################
-termin=False
-while not termin:
-    print("notre score est : ",notre_score)
-    print("le score de l'ennemi est: ",score_ennemi)
-    choix = input("entrer attaque ou potion : ")
-    if choix=="potion":
-        #nb_potion =+1
-        #print("nombre de potion : ",nb_potion)
-        nb_potion=compteur_potion(choix,nb_potion)
-        notre_score = notre_choix(choix,nb_potion,notre_score,score_ennemi)
-    elif choix == "attaque":
-        score_ennemi=notre_choix(choix,nb_potion,notre_score,score_ennemi)
     
-    
-    
-    
-        
-        
-        
-        
-    # if choix=="attaque":
-    #     score_ennemi=on_attaque_potion(choix,notre_score,score_ennemi)
-    # elif choix=="potion":
-    #     nb_potion +=1
-    #     if nb_potion <= 3:
-    #         notre_score = utilisation_potion(choix,nb_potion,notre_score,score_ennemi)
-    #     else:
-    #         score_ennemi = utilisation_potion(choix,nb_potion,notre_score,score_ennemi)
-  
-    # else:
-    #     print("SVP entrer un choix valide")
-    if score_ennemi <=0:
-        termin=True
-        print("l'ennemi est mort")
-    else:
-        notre_score -= rd.randint(5,15)
-        print("notre score apres l'attaque de l'ennemi est",notre_score)
-    if notre_score <=0:
-        termin=True
-        print("On est mort")
-        
 
-
-
-
-
-
-
-
-# def calculer_score_ennemi():
-#     pass
-
-# def ennemi_attaque():
-#     pass
+def enregistrer_score(score, nom_utilisateur):
+    """ FR : Cette fonction crée un fichier ou on retrouve tout les score des utilisateurs.
+        EN : This function creates a file where all the scores of the users are saved.
+    Args:
+        score (_type_): FR : Représente le score finale
+                        EN : Represents final score
+                        
+        nom_utilisateur (_type_): FR : Représente le nom d'utilisateur choisi 
+                                  EN : Represents choosen username
+    """
+    with open('scores.csv', mode='a') as fichier_score:
+        ecrire_score=csv.writer(fichier_score)
+        ecrire_score.writerow([nom_utilisateur,  " : Votre score est de ", score, " Points"])
