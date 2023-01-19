@@ -25,9 +25,10 @@ while not termine:
         on_attaque()
         il_attaque()
     else:
-        "entre un choix valide"  
+        "entrer un choix valide"  
     if "test de scores":
-        "si il y a au moins un score qui vaut <= 0"
+     "si il y a au moins un score qui vaut <= 0"
     termin= True
     
         
+            
