@@ -1,62 +1,42 @@
 import random as rd
-notre_score  = 50
+import csv 
+from utils import on_attaque, il_attaque, compteur_potion, on_prend_potion, enregistrer_score
+score_notre  = 50
 score_ennemi = 50
 nb_potion = 0
-    
-def on_attaque_potion(choix,x,y):
-    if choix=="attaque":
-        y -= rd.randint(5,10)
-        print("le score de l'ennemi est", y)
-        return y
-    if choix=="potion":
-        x += rd.randint(15,50)
-        print("notre score apres une potion est", x)
-        return x
-    return False
 
 
+
+print("\n Bienvenue dans ATTAQUE OU POTION : \n\n Voici les regles du jeu : Chaque attaque de l'ennemi vous fais perdre 5 à 15 de score. \n\n Vous devez choisir une action entre Attaquer (fait perdre 5 à 10 de score à l'ennemi) ou prendre une Potion vous fais gagner 15 à 50 de score. \n\n L'objectif est d'effectuer le meilleur score possible tout en gagnant. \n\n À la fin de la partie votre score est egale à vos pdv restant + 50 points de score par potion non utilisé...  PRET? \n....................................................................................................................\n....................................................................................................................\n ")
+
+nom_utilisateur = input("Entrez votre nom d'utilisateur : ")
 termin=False
+
 while not termin:
-    print(notre_score,score_ennemi)
-    choix = input("entrer attaque ou potion : ")
+    print("Votre score est de : ", score_notre)
+    print("Le score de l'ennemi est de : ", score_ennemi)
+    choix = input("Entrez une acttion : attaque ou potion : ")
     
-    if choix=="attaque":
-        score_ennemi=on_attaque_potion(choix,notre_score,score_ennemi)
-    elif choix=="potion":
-        nb_potion +=1
-        if nb_potion <=3:
-            notre_score=on_attaque_potion(choix,notre_score,score_ennemi)
-            print("nombre de potion",nb_potion)
+    if choix == "attaque" :
+        score_ennemi = on_attaque(score_ennemi)
+        score_notre = il_attaque(score_notre)    
+    elif choix == "potion" :
+        nb_potion = compteur_potion(nb_potion)    
+        if nb_potion <= 3:
+            score_notre = on_prend_potion(score_notre)
+            score_notre = il_attaque(score_notre)
+            print(" Le nb de potions utilisées est de : ", nb_potion)
         else:
-            print("on a utilisé toutes les potions")
-            choix = input("entrer juste attaque: ")
-            while choix != "attaque":
-                choix = input("entrer SVP juste attaque: ")   
-            score_ennemi=on_attaque_potion(choix,notre_score,score_ennemi)       
+             print("Vous avez utiliser toutes les potions... svp attaquez")
     else:
-        print("SVP entrer un choix valide")
-    
-    print(notre_score,score_ennemi)
-    if score_ennemi <=0:
-        termin=True
-        print("l'ennemi est mort")
-    else:
-        notre_score -= rd.randint(5,15)
-        print("notre score apres l'attaque de l'ennemi est",notre_score)
-    if notre_score <=0:
-        termin=True
-        print("On est mort")
+        print("entrer un choix valide : ")
+       
+    if score_ennemi <= 0:
+        termin = True
+        score_notre += 50*(3-nb_potion)
+        print("Felicitations vous avez gagner ! Votre score est de :" , score_notre, "Points")
+        enregistrer_score(score_notre, nom_utilisateur)
         
-
-
-
-
-
-
-
-
-# def calculer_score_ennemi():
-#     pass
-
-# def ennemi_attaque():
-#     pass
+    if score_notre <= 0 :
+        termin = True
+        print("vous etes mort, vous serez même pas classé... bouuuh ! " )
