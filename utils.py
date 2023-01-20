@@ -19,8 +19,7 @@ def on_attaque(score_ennemi):
     return score_ennemi
 
 def il_attaque(score_notre):
-    """ 
-        FR : cette fonction est faite pour calculer notre score après l'attaque de l'ennemi  
+    """ FR : cette fonction est faite pour calculer notre score après l'attaque de l'ennemi  
         EN : this function is made to calculate our score after enemy attack
 
     Args:
