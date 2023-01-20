@@ -14,11 +14,11 @@ Dans le dossier on retrouve plusieurs fichier:
 - Main : on retrouve le programme principal du jeu 
 - Pseudo code : un exemple de code simplifier
 - Test_utils : pour test les fonctions
-- utils : regroupe toutes les fonction avec un doctring pour expliquer chaque fontion
+- Utils : regroupe toutes les fonction avec un doctring pour expliquer chaque fontion
 
 # Utiliser le jeu 
 
-Pour utiliser le jeu il suffit de clone le projet depuis github/ForskyOnly/attaque_potion
-Avoir installé Python sur sa machine
-Installer les modules CSV et Random si ils ne sont présent dans la distribution de Python
+- Pour utiliser le jeu il suffit de clone le projet depuis github/ForskyOnly/attaque_potion
+- Avoir installé Python sur sa machine
+- Installer les modules CSV et Random si ils ne sont présent dans la distribution de Python
 
