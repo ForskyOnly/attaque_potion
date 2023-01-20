@@ -35,7 +35,7 @@ while not termin:
         termin = True
         score_notre += 50*(3-nb_potion)
         print("Felicitations vous avez gagner ! Votre score est de :" , score_notre, "Points")
-        enregistrer_score(score_notre, nom_utilisateur)
+        enregistrer_score(score_notre, nom_utilisateur,)
         
     if score_notre <= 0 :
         termin = True
