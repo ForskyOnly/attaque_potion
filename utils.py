@@ -97,6 +97,36 @@ def verifie_potion(nb_potion,score_notre):
         print("on a utilisé toutes les potions svp attaquer")
         return score_notre
     
+def bonus(score_ennemi,score_notre):
+    """ FR : cette fonction donne un bonus de +15 
+        EN : this function gives +15 as bonus
+        
+    Args:
+        score_ennemi:    FR : score_ennemi va représenter le score de l'ennemi
+                               EN : score_ennemi will represent the enemy score 
+        
+        score_notre (_type_):    FR : score_notre va représenter notre score 
+                                 EN : score_notre will represent our score
+
+    Returns:
+        _type_: FR :    if : elle retourne notre score ou le score de l'ennemi apres
+                             un choix aléatoire entre 0 et 5
+                
+                EN :    if: it returns our score and enemy score after random 
+                            choice between 0 and 5 
+                        
+    """
+    if score_ennemi <= 5 or score_notre <= 5 :
+        bonus = rd.choice([0,1,2,3,4,5])
+        if bonus == 0 :
+            score_ennemi += 15
+            return score_ennemi
+        elif bonus == 1 :
+            score_notre += 15
+            return score_notre
+        print("vos scores apres bonus ")
+        print("Votre score est de : ", score_notre)
+        print("Le score de l'ennemi est de : ", score_ennemi)
 
 def enregistrer_score(score, nom_utilisateur, path = "score.csv"):
     """ FR : Cette fonction crée un fichier ou on retrouve tout les score des utilisateurs.
