@@ -1,9 +1,10 @@
-import unittest
+import unittest, shutil, tempfile
 import random as rd
 import csv
 import shutil, tempfile
 from os import path
 from utils import on_attaque, il_attaque, on_prend_potion ,verifie_potion, compteur_potion ,enregistrer_score
+from os import path
 score_notre  = 50
 score_ennemi = 50
 nb_potion = 1
@@ -45,5 +46,17 @@ class TestOnEnregistrerScoreWithUnittest(unittest.TestCase):
         
         enregistrer_score(path_to_file,"jojo, : Votre score est de ,89, Points")
         
-        with open(path_to_file,"r") as f:
-            self.assertIn("Hello", f.read())
+class EnregistrerScoreTestCase(unittest.TestCase):
+    def setUp(self):
+        self.test_dir = tempfile.mkdtemp()
+    
+    def tearDown(self):
+        shutil.rmtree(self.test_dir)
+    
+    def test_enregistrer_score(self):
+      path_to_file = path.join(self.test_dir, 'scores.txt')        
+      
+      enregistrer_score(10, "test", path_to_file) 
+      
+      with open(path_to_file,"r") as fichier_score:
+        self.assertIn("test", fichier_score.read())

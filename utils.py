@@ -98,7 +98,7 @@ def verifie_potion(nb_potion,score_notre):
         return score_notre
     
 
-def enregistrer_score(score, nom_utilisateur):
+def enregistrer_score(score, nom_utilisateur, path = "score.csv"):
     """ FR : Cette fonction crée un fichier ou on retrouve tout les score des utilisateurs.
         EN : This function creates a file where all the scores of the users are saved.
     Args:
@@ -108,8 +108,7 @@ def enregistrer_score(score, nom_utilisateur):
         nom_utilisateur (_type_): FR : Représente le nom d'utilisateur choisi 
                                   EN : Represents choosen username
     """
-    with open('scores.csv', mode='a') as fichier_score:
+    with open(path, mode='a') as fichier_score:
         ecrire_score=csv.writer(fichier_score)
         ecrire_score.writerow([nom_utilisateur,  " : Votre score est de ", score, " Points"])
-
 
