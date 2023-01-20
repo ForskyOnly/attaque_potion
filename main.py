@@ -1,7 +1,6 @@
 import random as rd
 import csv 
-from utils import on_attaque, il_attaque, compteur_potion, on_prend_potion, enregistrer_score
-
+from utils import on_attaque, il_attaque, on_prend_potion, bonus, enregistrer_score
 score_notre  = 50
 score_ennemi = 50
 nb_potion = 0
@@ -12,17 +11,17 @@ print("\n Bienvenue dans ATTAQUE OU POTION : \n\n Voici les regles du jeu : Chaq
 
 nom_utilisateur = input("Entrez votre nom d'utilisateur : ")
 termin=False
+print("Votre score est de : ", score_notre)
+print("Le score de l'ennemi est de : ", score_ennemi)
 
 while not termin:
-    print("Votre score est de : ", score_notre)
-    print("Le score de l'ennemi est de : ", score_ennemi)
     choix = input("Entrez une acttion : attaque ou potion : ")
     
     if choix == "attaque" :
         score_ennemi = on_attaque(score_ennemi)
         score_notre = il_attaque(score_notre)    
     elif choix == "potion" :
-        nb_potion = compteur_potion(nb_potion)    
+        nb_potion +=1   
         if nb_potion <= 3:
             score_notre = on_prend_potion(score_notre)
             score_notre = il_attaque(score_notre)
@@ -31,12 +30,18 @@ while not termin:
              print("Vous avez utiliser toutes les potions... svp attaquez")
     else:
         print("entrer un choix valide : ")
-       
+    print("Votre score est de : ", score_notre)
+    print("Le score de l'ennemi est de : ", score_ennemi)
+    
+    bonus(score_ennemi,score_notre)
+   
+    
     if score_ennemi <= 0:
         termin = True
-        score_notre += 50*(3-nb_potion)
+        if nb_potion <= 3:
+            score_notre += 50*(3-nb_potion)
         print("Felicitations vous avez gagner ! Votre score est de :" , score_notre, "Points")
-        enregistrer_score(score_notre, nom_utilisateur)
+        enregistrer_score(score_notre, nom_utilisateur,)
         
     if score_notre <= 0 :
         termin = True
