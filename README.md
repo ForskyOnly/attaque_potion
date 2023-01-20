@@ -8,18 +8,18 @@ Pour ce faire, nous avons créé des fonctions. La première est appelée **on_a
 Finalement, la fonction **enregistrer_score(,)** demande un nom d'utilisateur et enregistre le score du joueur gagnant sur un fichier csv. 
 
 
-# Organisation du doiiser
+# Organisation du dossier
 
-Dans le dossier on retrouve plusieurs fichier: 
-- Main : on retrouve le programme principal du jeu 
-- Pseudo code : un exemple de code simplifier
-- Test_utils : pour test les fonctions
-- Utils : regroupe toutes les fonction avec un doctring pour expliquer chaque fontion
-- Score.csv : Où on retrouve les score de tout les joueurs (Le fichier se crée aprés la première utilisation)
+Dans le dossier on retrouve plusieurs fichiers:
+- Main : Nous retrouvons le programme principal du jeu;
+- Pseudo code : un exemple du programme principal simplifié;
+- Test_utils : pour tester les fonctions;
+- Utils : Nous regroupons toutes les fonctions avec un DocString pour expliquer chaque fonction;
+- Score.csv : Où Nous retrouvons les scores de tous les joueurs (Le fichier se crée aprés la première utilisation du jeu).
 
 # Utiliser le jeu 
 
-- Pour utiliser le jeu il suffit de clone le projet depuis github/ForskyOnly/attaque_potion
-- Avoir installé Python sur sa machine ( utiliser un terminal de commande pour lancer le jeu )
-- Installer les modules CSV et Random si ils ne sont présent dans la distribution de Python
+- Pour utiliser le jeu il suffit de cloner le projet depuis github/ForskyOnly/attaque_potion;
+- Avoir installé Python sur sa machine ( utiliser un terminal de commande pour lancer le jeu);
+- Installer les modules CSV et Random si ils ne sont pas présents dans votre distribution de Python.
 
