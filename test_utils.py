@@ -1,6 +1,6 @@
 import unittest, shutil, tempfile
 import random as rd
-from utils import on_attaque, il_attaque, on_prend_potion ,verifie_potion ,enregistrer_score
+from utils import on_attaque, il_attaque, on_prend_potion ,verifie_potion ,enregistrer_score, bonus
 from os import path
 score_notre  = 50
 score_ennemi = 50
@@ -23,7 +23,11 @@ class TestOnAttaqueWithUnittest(unittest.TestCase):
     def test_verifie_potion(self):
         rd.seed(44)
         self.assertEqual( verifie_potion(3,score_notre), 78) 
-
+        
+    def test_bonus(self):
+        rd.seed(4)
+        self.assertEqual(bonus(2,2), 17) 
+       
         
 class EnregistrerScoreTestCase(unittest.TestCase):
     def setUp(self):
