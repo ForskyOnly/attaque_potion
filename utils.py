@@ -8,11 +8,11 @@ def on_attaque(score_ennemi):
         
 
     Args:
-        score_ennemi (_type_):     FR : score_ennemi va représente le score du joueur ennemi
+        score_ennemi (Int):     FR : score_ennemi va représente le score du joueur ennemi
                         EN : score_ennemi  represents the score of the enemy player
 
     Returns:
-        _type_:     FR :   la fonction  retire des point de vie à l'adversaire entre 5 et 10
+        Int:     FR :   la fonction  retire des point de vie à l'adversaire entre 5 et 10
                     EN :   the function removes life points from the opponent between 5 and 10
     """
     score_ennemi -= rd.randint(5,10)
