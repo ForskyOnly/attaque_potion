@@ -8,6 +8,8 @@ def verifie_potion():
         pass
 def enregistrer_score():
         pass
+def bonus():
+        pass
 
 
 termine = False
@@ -25,6 +27,8 @@ while not termine:
         il_attaque()
     else:
         "entrer un choix valide"  
+        bonus ()
+        "applique un bons aléatorie"
     if "test de scores":
      "si il y a au moins un score qui vaut <= 0"
     enregistrer_score()
