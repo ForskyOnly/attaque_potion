@@ -50,21 +50,6 @@ def on_prend_potion(score_notre):
     print("la potion nous a donner : ", score_notre)
     return score_notre
 
-# def compteur_potion(nb_potion):
-#     """ FR : cette fonction nous permet de compter les potions utilisées
-#         EN : this function allows us to count the used  potions
-
-#     Args:
-#         nb_potion (_type_):    FR : nb_potion represent le nombre des potions utilisées
-#                         EN : nb_potion represents the used potions number 
-
-
-#     Returns:
-#         _type_: FR : rajoutde +1 a chaque fois que l'on utilise une potion
-#                 EN : add +1 everytime when we use a potion
-#     """
-#     nb_potion+= 1
-#     return nb_potion
 
 def verifie_potion(nb_potion,score_notre):
     """ FR : cette fonction limite l'utilisation de potions à 3 
