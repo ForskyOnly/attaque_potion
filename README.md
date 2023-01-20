@@ -10,12 +10,12 @@ Finalement, la fonction **enregistrer_score(,)** demande un nom d'utilisateur et
 
 # Organisation du dossier
 
-Dans le dossier on retrouve plusieurs fichiers:
-- Main : Nous retrouvons le programme principal du jeu;
+Dans le dossier nous retrouvons plusieurs fichiers:
+- Main : nous retrouvons le programme principal du jeu;
 - Pseudo code : un exemple du programme principal simplifié;
 - Test_utils : pour tester les fonctions;
-- Utils : Nous regroupons toutes les fonctions avec un DocString pour expliquer chaque fonction;
-- Score.csv : Où Nous retrouvons les scores de tous les joueurs (Le fichier se crée aprés la première utilisation du jeu).
+- Utils : nous regroupons toutes les fonctions avec un DocString pour expliquer chaque fonction;
+- Score.csv : où nous retrouvons les scores de tous les joueurs (Le fichier se crée aprés la première utilisation du jeu).
 
 # Utiliser le jeu 
 
