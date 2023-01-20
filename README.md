@@ -19,6 +19,6 @@ Dans le dossier on retrouve plusieurs fichier:
 # Utiliser le jeu 
 
 - Pour utiliser le jeu il suffit de clone le projet depuis github/ForskyOnly/attaque_potion
-- Avoir installé Python sur sa machine
+- Avoir installé Python sur sa machine ( utiliser un terminal de commande pour lancer le jeu )
 - Installer les modules CSV et Random si ils ne sont présent dans la distribution de Python
 
