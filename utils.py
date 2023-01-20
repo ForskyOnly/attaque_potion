@@ -72,10 +72,10 @@ def verifie_potion(nb_potion,score_notre):
         
     Args:
         nb_potion (_type_):    FR : nb_potion represente le nombre de potions utilisées
-                        EN : nb_potion represents the number of used potions 
+                               EN : nb_potion represents the number of used potions 
         
-        score_notre (_type_):     FR : score_notre va représenter notre score 
-                        EN : score_notre will represent our score
+        score_notre (_type_):    FR : score_notre va représenter notre score 
+                                 EN : score_notre will represent our score
 
     Returns:
         _type_: FR :    if : elle retourne notre score après la prise d'une potion 
