@@ -4,8 +4,6 @@ def il_attaque():
         pass
 def on_prend_potion():
         pass
-def compteut_potion():
-        pass
 def verifie_potion():
         pass
 def enregistrer_score():
@@ -21,7 +19,6 @@ while not termine:
         il_attaque()
     elif choix == "potion" :
         '''calculer le nb de potions'''
-        compteut_potion()
         verifie_potion()
         '''recalculer les scores par''' 
         on_attaque()
