@@ -15,6 +15,7 @@ Dans le dossier on retrouve plusieurs fichier:
 - Pseudo code : un exemple de code simplifier
 - Test_utils : pour test les fonctions
 - Utils : regroupe toutes les fonction avec un doctring pour expliquer chaque fontion
+- Score.csv : Où on retrouve les score de tout les joueurs (Le fichier se crée aprés la première utilisation)
 
 # Utiliser le jeu 
 
