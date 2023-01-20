@@ -86,7 +86,7 @@ def bonus(score_ennemi,score_notre):
         EN : this function gives +15 as bonus
         
     Args:
-        score_ennemi:    FR : score_ennemi va représenter le score de l'ennemi
+        score_ennemi:          FR : score_ennemi va représenter le score de l'ennemi
                                EN : score_ennemi will represent the enemy score 
         
         score_notre (_type_):    FR : score_notre va représenter notre score 
