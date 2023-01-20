@@ -8,7 +8,7 @@ Pour ce faire, nous avons créé des fonctions. La première est appelée **on_a
 Finalement, la fonction **enregistrer_score(,)** demande un nom d'utilisateur et enregistre le score du joueur gagnant sur un fichier csv. 
 
 
-# ORGANISATION DU DOSSIER
+# Organisation du doiiser
 
 Dans le dossier on retrouve plusieurs fichier: 
 - Main : on retrouve le programme principal du jeu 
